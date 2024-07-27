@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form action="/api/v1/input_sentiment_analyze" method="post" enctype="application/x-www-form-urlencoded">
+            <textarea name="text" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if sentiment %}
+        <div class="result">
+            <h2>Analysis Result:</h2>
+            <p>Text: {{ text }}</p>
+            <p>Sentiment: {{ sentiment }}</p>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="result">
+            <h2>Error</h2>
+            <p>Error message: {{ error_message }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
